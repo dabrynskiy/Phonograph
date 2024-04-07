@@ -156,8 +156,10 @@ public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment 
     protected void updatePlayPauseDrawableState(boolean animate) {
         if (MusicPlayerRemote.isPlaying()) {
             playerFabPlayPauseDrawable.setPause(animate);
+            playPauseFab.setContentDescription("Pause");
         } else {
             playerFabPlayPauseDrawable.setPlay(animate);
+            playPauseFab.setContentDescription("Play");
         }
     }
 

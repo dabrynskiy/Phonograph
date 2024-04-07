@@ -349,14 +349,17 @@ public class MainActivity extends AbsSlidingMusicPanelActivity {
     }
 
     private boolean checkShowIntro() {
-        if (!PreferenceUtil.getInstance(this).introShown()) {
+        // хорошо бы иметь возможность отключать для тест билда, имитирую)
+        PreferenceUtil.getInstance(this).setIntroShown();
+        return true;
+        /*if (!PreferenceUtil.getInstance(this).introShown()) {
             PreferenceUtil.getInstance(this).setIntroShown();
             ChangelogDialog.setChangelogRead(this);
             blockRequestPermissions = true;
             new Handler().postDelayed(() -> startActivityForResult(new Intent(MainActivity.this, AppIntroActivity.class), APP_INTRO_REQUEST), 50);
             return true;
         }
-        return false;
+        return false;*/
     }
 
     private void showChangelog() {

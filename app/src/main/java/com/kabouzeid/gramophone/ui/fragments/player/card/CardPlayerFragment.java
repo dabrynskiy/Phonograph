@@ -296,9 +296,13 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
                     int res = isFavorite ? R.drawable.ic_favorite_white_24dp : R.drawable.ic_favorite_border_white_24dp;
                     int color = ToolbarContentTintHelper.toolbarContentColor(activity, Color.TRANSPARENT);
                     Drawable drawable = ImageUtil.getTintedVectorDrawable(activity, res, color);
-                    toolbar.getMenu().findItem(R.id.action_toggle_favorite)
-                            .setIcon(drawable)
-                            .setTitle(isFavorite ? getString(R.string.action_remove_from_favorites) : getString(R.string.action_add_to_favorites));
+                        toolbar.getMenu().findItem(R.id.action_toggle_favorite)
+                                .setIcon(drawable)
+                                .setTitle(isFavorite ? getString(R.string.action_remove_from_favorites) : getString(R.string.action_add_to_favorites));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        toolbar.getMenu().findItem(R.id.action_toggle_favorite)
+                                .setContentDescription(isFavorite ? getString(R.string.action_remove_from_favorites) : getString(R.string.action_add_to_favorites));
+                    }
                 }
             }
         }.execute(MusicPlayerRemote.getCurrentSong());

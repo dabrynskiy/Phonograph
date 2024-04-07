@@ -46,7 +46,7 @@ public class PlayPauseDrawable extends Drawable {
     private float height;
 
     private float progress;
-    private boolean isPlay;
+    public boolean isPlay;
     private boolean isPlaySet;
 
     private Animator animator;
